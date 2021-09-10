@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <div id="botonera" style="margin-block: 200px; border-color: black;">                                                                                                                                                                                         background-color: aqua; width: 200px; margin-left: 500px;" >
+        <div class="display" style="grid-column: 1 / -1; padding: 25px; display: flex; margin: 10px 10px; flex-direction: column; align-items: center; background-color: blanchedalmond;">
+            <div id="resultad"></div>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button id="siete" class="btn btn-primary " type="button" value="7"style="height: 38px; width: 35px;"> 7 </button>
+            <button id="ocho" class="btn btn-primary" type="button" value="8"style="height: 38px; width: 35px;"> 8 </button>
+            <button id="nueve" class="btn btn-primary" type="button" value="9"style="height: 38px; width: 35px;"> 9 </button>
+            <button id="dividir" class="btn btn-primary" type="button" value="/"style="height: 38px; width: 35px;"> / </button>
+        </div>
+        <br>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button id="cuatro" class="btn btn-primary " type="button" value="4"style="height: 38px; width: 35px;"> 4 </button>
+            <button id="cinco" class="btn btn-primary" type="button" value="5"style="height: 38px; width: 35px;"> 5 </button>
+            <button id="seis" class="btn btn-primary" type="button" value="6"style="height: 38px; width: 35px;"> 6 </button>
+            <button id="multiplicar" class="btn btn-primary" type="button" value="x"style="height: 38px; width: 35px;"> x </button>
+        </div>
+        <br>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button id="uno" class="btn btn-primary " type="button" value="1" style="height: 38px; width: 35px;"> 1 </button>
+            <button id="dos" class="btn btn-primary" type="button" value="2"style="height: 38px; width: 35px;"> 2 </button>
+            <button id="tres" class="btn btn-primary" type="button" value="3"style="height: 38px; width: 35px;"> 3 </button>
+            <button id="restar" class="btn btn-primary" type="button" value="-"style="height: 38px; width: 35px;"> - </button>
+        </div>
+        <br>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button id="cero" class="btn btn-primary " type="button" value="0"style="height: 38px; width: 35px;"> 0 </button>
+            <a class="btn btn-primary" href="javascript:location.reload()"style="height: 38px; width: 35px;"> c </a>
+            <button id="sumar" class="btn btn-primary" type="button" value="+"style="height: 38px; width: 35px;"> + </button>
+            <button id="resultado" class="btn btn-primary" type="button" value="="style="height: 38px; width: 35px;"> = </button>
+        </div>
+    </div>
+    <script>
+        var numero1 = [];
+        var numero2 = [];
+        var operador = "";
+        var event1 = document.addEventListener("click",
+            function (e) {
+                if (e.target.id == "restar" || e.target.id == "sumar" || e.target.id == "multiplicar" || e.target.id == "dividir") {
+                    operador = e.target.value;
+
+                } else if (e.target.id == "resultado") {
+                    console.log("entro");
+                    console.log(operador);
+                    console.log(typeof(a));
+                        switch (operador) {
+                            case '+':
+                                console.log("entro a caso1");
+                                var resul = a + b;
+                                document.getElementById('resultad').innerHTML = resul;
+                                console.log(resul);
+                                
+                                break;
+                            case '-':
+                                console.log("entro a caso2");
+                                var resul = a - b;
+                                document.getElementById('resultad').innerHTML = resul;
+                                console.log(resul);
+                                break;
+                            case 'x':
+                                console.log("entro a caso3");
+                                var resul = a * b;
+                                document.getElementById('resultad').innerHTML = resul;
+                                console.log(resul);
+                                break;
+                            case '/':
+                                console.log("entro a caso4");
+                                var resul = a / b;
+                                document.getElementById('resultad').innerHTML = resul;
+                                console.log(resul);
+                                break;
+                        }
+                } else {
+                    if (operador == false) {
+                        numero1.push(parseInt(e.target.value));
+                        a = parseInt(numero1.toString().replaceAll(",", ""));
+                        console.log(a);
+                    } else {
+                        numero2.push(parseInt(e.target.value));
+                        b = parseInt(numero2.toString().replaceAll(",", ""));
+                        console.log(b);
+                    }
+                }
+            });
+    </script>
+</body>
+
+</html>
