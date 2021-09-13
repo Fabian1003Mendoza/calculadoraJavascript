@@ -13,10 +13,10 @@
 <body>
     <div>
         <div id="botonera"
-            style="margin-block: 200px; border-color: black;background-color: aqua; width: 200px; margin-left: 500px; box-sizing: content-box;
+            style="margin-block: 200px; border-color: black;background-color: chartreuse; width: 200px; margin-left: 500px; box-sizing: content-box;
             width: 15%;
             border: solid #5B6DCD 10px;
-            padding: 20px;">
+            padding: 20px; border-radius:22px">
             <div class="display"
                 style="grid-column: 1 / -1; padding: 25px; display: flex; margin: 10px 10px; flex-direction: column; align-items: center; background-color: blanchedalmond;">
                 <div id="resultad"></div>
@@ -76,45 +76,41 @@
                     operador = e.target.value;
 
                 } else if (e.target.id == "resultado") {
-                    console.log("entro");
-                    console.log(operador);
-                    console.log(typeof (a));
                     switch (operador) {
-                        case '+':
-                            console.log("entro a caso1");
+                        case '+':                         
                             var resul = a + b;
                             document.getElementById('resultad').innerHTML = resul;
                             console.log(resul);
 
                             break;
                         case '-':
-                            console.log("entro a caso2");
                             var resul = a - b;
                             document.getElementById('resultad').innerHTML = resul;
                             console.log(resul);
                             break;
                         case 'x':
-                            console.log("entro a caso3");
                             var resul = a * b;
                             document.getElementById('resultad').innerHTML = resul;
                             console.log(resul);
                             break;
                         case '/':
-                            console.log("entro a caso4");
                             var resul = a / b;
+                            if(a === 0 || b === 0){
+                                document.getElementById('resultad').innerHTML = "operacion invalida";   
+                            }else{
                             document.getElementById('resultad').innerHTML = resul;
-                            console.log(resul);
+                            console.log(resul);}
                             break;
                     }
                 } else {
                     if (operador == false) {
                         numero1.push(parseInt(e.target.value));
                         a = parseInt(numero1.toString().replaceAll(",", ""));
-                        console.log(a);
+                        document.getElementById('resultad').innerHTML = a;
                     } else {
                         numero2.push(parseInt(e.target.value));
                         b = parseInt(numero2.toString().replaceAll(",", ""));
-                        console.log(b);
+                        document.getElementById('resultad').innerHTML = a + " " + operador + " " + b ;
                     }
                 }
             });
